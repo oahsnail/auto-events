@@ -61,10 +61,16 @@ root = Tk()
 root.title("Auto-Events")
 frame = Frame(root)
 frame.pack()
+instructions = Label(
+    root, text="""Press \"start listening\" button to start the program.
+                  Press up-arrow to hold click, and down-arrow to release click. 
+                  Press \"stop-listening\" or the \"end\" key to pause the program""")
+
 startButton = Button(frame, text="Start Listening",
                      command=startThread)
 stopButton = Button(frame, text="Stop Listening", command=end)
 
+instructions.pack()
 startButton.pack()
 stopButton.pack()
 
