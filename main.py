@@ -1,10 +1,12 @@
-from pynput import mouse, keyboard
-from pynput.mouse import Controller as MouseController, Button as MouseButton
-from pynput.keyboard import Controller as KeyController, Key, Listener, KeyCode
-from tkinter import *
-import time
 import threading
+import time
+import tkinter as tk
 
+from pynput import keyboard, mouse
+from pynput.keyboard import Controller as KeyController
+from pynput.keyboard import Key, KeyCode, Listener
+from pynput.mouse import Button as MouseButton
+from pynput.mouse import Controller as MouseController
 
 mouse = MouseController()
 keyboard = KeyController()
@@ -57,18 +59,18 @@ def onClosing():
 
 
 # gui stuff
-root = Tk()
+root = tk.Tk()
 root.title("Auto-Events")
-frame = Frame(root)
+frame = tk.Frame(root)
 frame.pack()
-instructions = Label(
+instructions = tk.Label(
     root, text="""Press \"start listening\" button to start the program.
                   Press up-arrow to hold click, and down-arrow to release click. 
                   Press \"stop-listening\" or the \"end\" key to pause the program""")
 
-startButton = Button(frame, text="Start Listening",
-                     command=startThread)
-stopButton = Button(frame, text="Stop Listening", command=end)
+startButton = tk.Button(frame, text="Start Listening",
+                        command=startThread)
+stopButton = tk.Button(frame, text="Stop Listening", command=end)
 
 instructions.pack()
 startButton.pack()
